@@ -11,7 +11,53 @@
     background-size: cover;
     height: max-content;
 }
-
+/* ----------------------------- */
+/* General Form Container Positioning */
+.container {
+    width: 100%;
+    max-width: 400px;  /* Adjust the max-width as needed */
+    margin: auto;
+    padding: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 50%);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;  /* Hide the container initially */
+  }
+  
+  /* Right-side positioning for Sign In and Sign Up forms */
+  #signup, #signIn {
+    display: none; /* Initially hide both forms */
+    position: fixed;
+    top: 50px;  /* Adjust this value if needed */
+    right: 20px;
+    z-index: 999;
+    width: 350px; /* Width of the form container */
+  }
+  
+  #signup {
+    transform: translateY(0);
+    top: 80px;
+  }
+  
+  #signIn {
+    transform: translateY(0);
+    top: 80px;
+  }
+  
+  /* Make forms responsive */
+  @media (max-width: 768px) {
+    #signup, #signIn {
+      width: 100%;
+      top: 20px;
+      right: 10px;
+      margin: 10px;
+    }
+  }
+  
 .navbar {
     width: 100%;
     max-width: 1400px;
@@ -120,10 +166,11 @@ ul li a:hover {
 
 .content .par {
     font-family: Arial;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.1px;
     line-height: 30px;
-    padding-left: 20px;
+    padding-left: 2px;
     padding-bottom: 25px;
+    margin: 2px;
 }
 
 .content span {
@@ -214,7 +261,7 @@ ul li a:hover {
     color: #fff;
     font-size: 18px;
     cursor: pointer;
-    margin-top: 13px;
+    margin-top: 0px;
     transition: 0.3s;
 }
 
@@ -327,3 +374,145 @@ ul li a:hover {
         max-width: 100%;
     }
 }
+/* Main container for the calculator */
+.gold-silver-calculator {
+    width: 100%;
+    max-width: 456px;
+    margin: 3px auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1.5);
+    color: #fff;
+  }
+  
+  .gold-silver-calculator h2 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #ff7200;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Specific styling for input groups inside the calculator */
+  .gold-silver-calculator .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .gold-silver-calculator .input-group label {
+    font-size: 16px;
+    color: #ff7200;
+    margin-bottom: 5px;
+    display: block;
+    font-family: 'Arial', sans-serif;
+    padding-left: 1px;
+    position: relative; /* slight adjustment to make the label not touch the edge */
+    left: 5px;
+    top: -5px;
+  }
+  
+  /* Input fields styling */
+  .gold-silver-calculator .input-group input[type="number"],
+  .gold-silver-calculator .input-group input[type="radio"] {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Radio button styling */
+  .gold-silver-calculator .input-group input[type="radio"] {
+    width: 17px;
+    height: 22px;
+    margin-right: -8px;
+    cursor: pointer;
+    left: 86px;
+  }
+
+  .gold-silver-calculator .input-group input[type="radio"]:hover {
+    background-color: #7aca10;
+    color: #8ab7be;
+  }
+ 
+  .gold-silver-calculator .input-group label {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+
+  }
+  
+  .gold-silver-calculator .input-group input[type="radio"]:checked + label {
+    color: #ff7200;
+  }
+  
+  /* Styling for the gold and silver weight inputs */
+  .gold-silver-calculator .input-group input[type="number"] {
+    width: 40%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #ff7200;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 12px;
+    left: 10px;
+    top: -5px;
+
+  }
+  
+  .gold-silver-calculator .input-group input[type="number"]:focus {
+    outline: none;
+    border-color: #fff;
+  }
+  
+  /* Button styling */
+  .gold-silver-calculator button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff7200;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .gold-silver-calculator button[type="submit"]:hover {
+    background-color: #fff;
+    color: #ff7200;
+  }
+  
+  /* Price result styling */
+  .gold-silver-calculator #price-result {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    background-color: transparent;
+    color: #ff7200;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+  
+  .gold-silver-calculator #price-result p {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .gold-silver-calculator {
+      padding: 20px;
+    }
+  
+    .gold-silver-calculator h2 {
+      font-size: 24px;
+    }
+  
+    .gold-silver-calculator .input-group input[type="number"] {
+      padding: 10px;
+    }
+  
+    .gold-silver-calculator button[type="submit"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+  
