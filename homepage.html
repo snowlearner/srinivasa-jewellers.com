@@ -1,0 +1,97 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+   <meta charset="UTF-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+   <title>Homepage</title>  
+    
+   <style>  
+      body {  
+        padding: 30px;  
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);  
+      }  
+      h1 {  
+        text-align: center;  
+      }  
+      button {  
+        color: blueviolet;  
+        background-color: #c9d6ff;  
+        padding: 5px;  
+        border-radius: 5px;  
+        font-size: 1rem;  
+        font-weight: bold;  
+        border: none;  
+      }  
+      button:hover {  
+        text-decoration: underline;  
+        color: blue;  
+      }  
+      button, div {  
+        margin-left: 15%;  
+        font-size: 20px;  
+        padding: 10px;  
+      }  
+      div {  
+        font-weight: 400;  
+        color: rgb(12,11,11);  
+      }  
+      span {  
+        font-weight: 600;  
+        font-size: 22px;  
+        color: black;  
+      }  
+      .input-group {  
+        margin: 10px 0;  
+      }  
+   </style>  
+   <script type="module" src="./homepage.js"></script>  
+</head>  
+<body>  
+   <h1>Welcome to the Homepage</h1>  
+    
+   <h2> User Details</h2>  
+   <div>First Name: <span id="loggedUserFName"></span></div>  
+   <div>Last Name: <span id="loggedUserLName"></span></div>  
+   <div>Email: <span id="loggedUserEmail"></span></div>  
+  
+       
+   <!-- Gold and Silver Price Update Form -->  
+   <h2>Please Update the Prices for Gold and Silver </h2>  
+   <form id="priceForm">  
+      <div class="input-group">  
+        <label for="price18Carat">Price 18 Carat Gold per Gram:</label>  
+        <input type="number" id="price18Carat" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="price20Carat">Price 20 Carat Gold per Gram:</label>  
+        <input type="number" id="price20Carat" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="price22Carat">Price 22 Carat Gold per Gram:</label>  
+        <input type="number" id="price22Carat" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="price24Carat">Price 24 Carat Gold per Gram:</label>  
+        <input type="number" id="price24Carat" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="priceSilver1">Price Silver 1 per Gram:</label>  
+        <input type="number" id="priceSilver1" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="priceSilver2">Price Silver 2 per Gram:</label>  
+        <input type="number" id="priceSilver2" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="wastageCharges">Wastage Charges (%):</label>  
+        <input type="number" id="wastageCharges" required />  
+      </div>  
+      <div class="input-group">  
+        <label for="makingCharges">Making Charges (%):</label>  
+        <input type="number" id="makingCharges" required />  
+      </div>  
+      <button type="submit" id="savePrices">Save Prices</button>  
+   </form>  
+   <button id="logout">Logout</button>  
+</body>  
+</html>
