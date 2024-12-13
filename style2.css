@@ -31,7 +31,7 @@
   /* Right-side positioning for Sign In and Sign Up forms */
   #signup, #signIn {
     display: none; /* Initially hide both forms */
-    position: fixed;
+    position: absolute;
     top: 50px;  /* Adjust this value if needed */
     right: 20px;
     z-index: 999;
