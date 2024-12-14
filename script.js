@@ -169,3 +169,21 @@ calculatorForm.addEventListener('submit', (e) => {
       priceResultDiv.innerText = 'Error calculating price';
     });
 });
+
+document.getElementById("loginBtn").addEventListener("click", function (e) {  
+  e.preventDefault();  
+  // Show the signIn form and hide signUp form  
+  document.getElementById("signIn").style.display = "block";  
+  document.getElementById("signup").style.display = "none";  
+});  
+ 
+// Toggle between Sign Up and Sign In Forms  
+document.getElementById("signInButton").addEventListener("click", function () {  
+  document.getElementById("signIn").style.display = "block";  
+  document.getElementById("signup").style.display = "none";  
+});  
+ 
+document.getElementById("signUpButton").addEventListener("click", function () {  
+  document.getElementById("signIn").style.display = "none";  
+  document.getElementById("signup").style.display = "block";  
+});
