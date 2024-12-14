@@ -66,10 +66,10 @@ priceForm.addEventListener('submit', (e) => {
   const loggedInUserId = localStorage.getItem('loggedInUserId');   
   if (loggedInUserId) {   
     const priceData = {   
-      price18Carat: parseFloat(document.getElementById('price18Carat').value),   
-      price20Carat: parseFloat(document.getElementById('price20Carat').value),   
-      price22Carat: parseFloat(document.getElementById('price22Carat').value),   
-      price24Carat: parseFloat(document.getElementById('price24Carat').value),   
+      price18Carat: parseFloat(document.getElementById('price18Karat').value),   
+      price20Carat: parseFloat(document.getElementById('price20Karat').value),   
+      price22Carat: parseFloat(document.getElementById('price22Karat').value),   
+      price24Carat: parseFloat(document.getElementById('price24Karat').value),   
       priceSilver1: parseFloat(document.getElementById('priceSilver1').value),   
       priceSilver2: parseFloat(document.getElementById('priceSilver2').value),   
       wastageCharges: parseFloat(document.getElementById('wastageCharges').value),   
