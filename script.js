@@ -187,3 +187,59 @@ document.getElementById("signUpButton").addEventListener("click", function () {
   document.getElementById("signIn").style.display = "none";  
   document.getElementById("signup").style.display = "block";  
 });
+
+
+
+// // Handle Sign-In
+// document.getElementById("submitSignIn").addEventListener("click", async (e) => {
+//   e.preventDefault();
+
+//   const email = document.getElementById("email").value.trim();
+//   const password = document.getElementById("password").value.trim();
+
+//   // Validate input fields
+//   if (!email || !password) {
+//     alert("Please enter both email and password.");
+//     return;
+//   }
+
+//   try {
+//     // Sign in the user using Firebase Authentication
+//     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+//     const user = userCredential.user;
+
+//     console.log("Authentication successful:", user);
+
+//     // Verify if the user exists in Firestore
+//     const docRef = doc(db, "users", user.uid);
+//     const userDoc = await getDoc(docRef);
+
+//     if (userDoc.exists()) {
+//       console.log("User found in Firestore:", userDoc.data());
+
+//       // Show success message and redirect
+//       alert("User logged in successfully!");
+//       localStorage.setItem("loggedInUserId", user.uid);
+//       window.location.href = "homepage.html";
+//     } else {
+//       console.warn("No Firestore document found for UID:", user.uid);
+//       alert("User details not found in the database. Please register first.");
+//     }
+//   } catch (error) {
+//     console.error("Error during login:", error);
+
+//     // Error handling based on Firebase error codes
+//     if (error.code === "auth/user-not-found") {
+//       alert("No user found with this email. Please register.");
+//     } else if (error.code === "auth/wrong-password") {
+//       alert("Incorrect password. Please try again.");
+//     } else if (error.code === "auth/invalid-email") {
+//       alert("Invalid email address. Please check and try again.");
+//     } else {
+//       alert("Login failed. Please try again with correct user credentials.");
+//     }
+//   }
+// });
+
+
+

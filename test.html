@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #F5F5DC;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin: 10px 0;
+  width: 100px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Gold and Silver Price Calculator</h1>
+
+<form>
+  <p>Gold Type:</p>
+  <input type="radio" name="goldType" value="18"> 18 Carat
+  <input type="radio" name="goldType" value="20"> 20 Carat
+  <input type="radio" name="goldType" value="22"> 22 Carat
+  <input type="radio" name="goldType" value="24"> 24 Carat
+  <br>
+  <label for="goldWeight">Gold Weight (in grams):</label>
+  <input type="text" id="goldWeight" name="goldWeight" value="10">
+
+  <p>Silver Type:</p>
+  <input type="radio" name="silverType" value="1" checked> Silver 1
+  <input type="radio" name="silverType" value="2"> Silver 2
+  <br>
+  <label for="silverWeight">Silver Weight (in grams):</label>
+  <input type="text" id="silverWeight" name="silverWeight">
+
+  <button type="submit">Calculate Price</button>
+</form>
+
+</body>
+</html>
