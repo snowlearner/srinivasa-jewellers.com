@@ -1,97 +1,325 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-   <meta charset="UTF-8">  
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-   <title>Homepage</title>  
-    
-   <style>  
-      body {  
-        padding: 30px;  
-        background: linear-gradient(to right, #e2e2e2, #c9d6ff);  
-      }  
-      h1 {  
-        text-align: center;  
-      }  
-      button {  
-        color: blueviolet;  
-        background-color: #c9d6ff;  
-        padding: 5px;  
-        border-radius: 5px;  
-        font-size: 1rem;  
-        font-weight: bold;  
-        border: none;  
-      }  
-      button:hover {  
-        text-decoration: underline;  
-        color: blue;  
-      }  
-      button, div {  
-        margin-left: 15%;  
-        font-size: 20px;  
-        padding: 10px;  
-      }  
-      div {  
-        font-weight: 400;  
-        color: rgb(12,11,11);  
-      }  
-      span {  
-        font-weight: 600;  
-        font-size: 22px;  
-        color: black;  
-      }  
-      .input-group {  
-        margin: 10px 0;  
-      }  
-   </style>  
-   <script type="module" src="./homepage.js"></script>  
-</head>  
-<body>  
-   <h1>Welcome to the Homepage</h1>  
-    
-   <h2> User Details</h2>  
-   <div>First Name: <span id="loggedUserFName"></span></div>  
-   <div>Last Name: <span id="loggedUserLName"></span></div>  
-   <div>Email: <span id="loggedUserEmail"></span></div>  
-  
-       
-   <!-- Gold and Silver Price Update Form -->  
-   <h2>Please Update the Prices for Gold and Silver </h2>  
-   <form id="priceForm">  
-      <div class="input-group">  
-        <label for="price18Karat">Price 18 Karat Gold per Gram:</label>  
-        <input type="number" id="price18Karat" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="price20Karat">Price 20 Karat Gold per Gram:</label>  
-        <input type="number" id="price20Karat" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="price22Karat">Price 22 Karat Gold per Gram:</label>  
-        <input type="number" id="price22Karat" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="price24Karat">Price 24 Karat Gold per Gram:</label>  
-        <input type="number" id="price24Karat" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="priceSilver1">Price Silver 1 per Gram:</label>  
-        <input type="number" id="priceSilver1" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="priceSilver2">Price Silver 2 per Gram:</label>  
-        <input type="number" id="priceSilver2" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="wastageCharges">Wastage Charges (%):</label>  
-        <input type="number" id="wastageCharges" required />  
-      </div>  
-      <div class="input-group">  
-        <label for="makingCharges">Making Charges per Gram:</label>  
-        <input type="number" id="makingCharges" required />  
-      </div>  
-      <button type="submit" id="savePrices">Save Prices</button>  
-   </form>  
-   <button id="logout">Logout</button>  
-</body>  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+      color: #333;
+      padding: 30px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #4a90e2;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    h1:hover {
+      color: #357ab7;
+      /* Change color on hover */
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    h2:hover {
+      color: #4a90e2;
+      /* Change color on hover */
+    }
+
+    /* Card Layout for User Details */
+    .user-details-card {
+      background-color: cyan;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 389px;
+      margin-bottom: 30px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .user-details-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .user-details-card h3 {
+      margin-bottom: 10px;
+      color: goldenrod;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+
+    .user-details-card div {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .user-details-card span {
+      font-weight: bold;
+      color: mediumblue;
+    }
+
+    /* Container for Forms */
+    .form-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .form-card {
+      background-color: transparent;
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0.2, 0.9);
+      padding: 20px;
+      width: 521px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .form-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: lightcyan;
+    }
+
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(72, 148, 226, 0.7);
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 200px;
+    }
+
+    button:hover {
+      background-color: #357ab7;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      background-color: #286a99;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .user-details-card,
+      .form-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 10px 0;
+      }
+
+      .form-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      input,
+      select {
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to the Homepage</h1>
+
+  <!-- User Details Section -->
+  <div class="user-details-card">
+    <h3>User Details</h3>
+    <div>
+      <strong>First Name:</strong> <span id="loggedUserFName">John</span>
+    </div>
+    <div>
+      <strong>Last Name:</strong> <span id="loggedUserLName">Doe</span>
+    </div>
+    <div>
+      <strong>Email:</strong> <span id="loggedUserEmail">john.doe@example.com</span>
+    </div>
+  </div>
+
+  <!-- Gold and Silver Price Update Form -->
+  <div class="form-container">
+    <div class="form-card">
+      <h2>Please Update the Prices for Gold and Silver</h2>
+      <form id="priceForm">
+        <div class="input-group">
+          <label for="price18Karat">Price 18 Karat Gold per Gram:</label>
+          <input type="number" id="price18Karat" required />
+        </div>
+        <div class="input-group">
+          <label for="price20Karat">Price 20 Karat Gold per Gram:</label>
+          <input type="number" id="price20Karat" required />
+        </div>
+        <div class="input-group">
+          <label for="price22Karat">Price 22 Karat Gold per Gram:</label>
+          <input type="number" id="price22Karat" required />
+        </div>
+        <div class="input-group">
+          <label for="price24Karat">Price 24 Karat Gold per Gram:</label>
+          <input type="number" id="price24Karat" required />
+        </div>
+        <div class="input-group">
+          <label for="priceSilver1">Price Silver 1 per Gram:</label>
+          <input type="number" id="priceSilver1" required />
+        </div>
+        <div class="input-group">
+          <label for="priceSilver2">Price Silver 2 per Gram:</label>
+          <input type="number" id="priceSilver2" required />
+        </div>
+        <div class="input-group">
+          <label for="wastageCharges">Wastage Charges (%):</label>
+          <input type="number" id="wastageCharges" required />
+        </div>
+        <div class="input-group">
+          <label for="makingCharges">Making Charges per Gram:</label>
+          <input type="number" id="makingCharges" required />
+        </div>
+        <button type="submit" id="savePrices">Save Prices</button>
+      </form>
+    </div>
+
+    <!-- Add New Product Form -->
+    <div class="form-card">
+      <h2>Add a New Product</h2>
+      <form id="addProductForm">
+        <div class="input-group">
+          <label for="product-category">Product Category</label>
+          <select id="product-category" required>
+            <option value="24 Karat">24 Karat</option>
+            <option value="22 Karat">22 Karat</option>
+            <option value="20 Karat">20 Karat</option>
+            <option value="18 Karat">18 Karat</option>
+            <option value="Silver 1">Silver 1</option>
+            <option value="Silver 2">Silver 2</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="product-name">Product Name</label>
+          <input type="text" id="product-name" required />
+        </div>
+        <div class="input-group">
+          <label for="product-weight">Product Weight</label>
+          <input type="number" id="product-weight" step="0.001" required />
+        </div>
+        <div class="input-group">
+          <label for="product-image-url">Product Image URL</label>
+          <input type="text" id="product-image-url" placeholder="Enter image URL" required />
+        </div>
+        <button type="submit">Add Product</button>
+      </form>
+      <!-- ---------------------- -->
+      <h2>Delete a Product</h2>
+      <form id="deleteProductForm">
+        <label for="product-select">Select Product to Delete</label>
+        <select id="product-select" required>
+          <!-- Product options will be populated dynamically -->
+        </select>
+
+        <button type="submit">Delete Product</button>
+      </form>
+      <!-- --------------------------------- -->
+    </div>
+
+  </div>
+
+  <!-- Logout Button -->
+  <button id="logout" onclick="window.location.href = 'logout.html';">Logout</button>
+
+  <script type="module" src="./homepage.js"></script>
+</body>
+
 </html>

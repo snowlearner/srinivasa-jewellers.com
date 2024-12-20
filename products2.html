@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <!-- CSS styles inside the HTML file -->
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .navbar .logo img {
+            width: 100px;
+            height: 90px;
+        }
+
+        .navbar .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar .menu ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .navbar .menu ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        #goBackButton {
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #goBackButton:hover {
+            background-color: #2980b9;
+        }
+
+        /* Product Card Styles */
+        #productsContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .product {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .product h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 15px 0;
+        }
+
+        .product p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+
+        .calculate-price {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculate-price:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .product h3 {
+                font-size: 1.1rem;
+            }
+
+            .product p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">
+                <img src="image2.jpg" alt="Trulli" width="100" height="90" />
+            </h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="products.html">PRODUCTS</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#" id="loginBtn">LOGIN</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <h1>Our Exclusive Products</h1>
+    <div>
+        <button id="goBackButton">Go Back to Main Page</button>
+    </div>
+    <br><br>
+
+    <!-- Container for products -->
+    <div id="productsContainer"></div>
+
+    <!-- Include Firebase App & Firestore scripts -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js"></script>
+
+    <!-- Firebase Initialization and Product Display -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDt_ePCpK6FVGe4tmJgMaz-DmlvGQm5wk4",
+            authDomain: "srinivasa-jewellers.firebaseapp.com",
+            projectId: "srinivasa-jewellers",
+            storageBucket: "srinivasa-jewellers.firebasestorage.app",
+            messagingSenderId: "861877666540",
+            appId: "1:861877666540:web:f1c4557fdb19732ffc1bc9",
+            measurementId: "G-WV4L6HXEXF"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Get product data from Firestore
+        async function getProductData() {
+            const productRef = doc(db, "priceData", "r8NuFZ36WWbuuBv5muZDXgRJIxB2");
+            const productSnap = await getDoc(productRef);
+            if (productSnap.exists()) {
+                const priceData = productSnap.data();
+                return priceData;
+            } else {
+                console.log("No such document!");
+            }
+        }
+
+        // Fetch products and display them
+        async function fetchAndDisplayProducts() {
+            const priceData = await getProductData();
+
+            const products = [
+                { name: "Gold Necklace", category: "gold", imageUrl: "image1.jpg", pricePerGram: 10 },
+                { name: "Gold Ring", category: "gold", imageUrl: "image2.jpg", pricePerGram: 15 },
+                { name: "Silver Bracelet", category: "silver", imageUrl: "image3.jpg", pricePerGram: 5 },
+            ];
+
+            const container = document.getElementById("productsContainer");
+
+            products.forEach((product) => {
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+                productDiv.innerHTML = `
+                    <img src="${product.imageUrl}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Category: ${product.category}</p>
+                    <p>Price per Gram: ₹${product.pricePerGram}</p>
+                    <button class="calculate-price" onclick="calculatePrice('${product.category}', ${product.pricePerGram}, ${priceData})">Calculate Price</button>
+                    <p id="price-result-${product.name}"></p>
+                `;
+                container.appendChild(productDiv);
+            });
+        }
+
+        // Price Calculation Function
+        function calculatePrice(category, pricePerGram, priceData) {
+            let price = 0;
+            if (category === "gold") {
+                if (priceData[`price${category.charAt(0).toUpperCase() + category.slice(1)}18Karat`]) {
+                    price = pricePerGram * priceData[`price${category.charAt(0).toUpperCase() + category.slice(1)}18Karat`] * priceData.wastageCharges + priceData.makingCharges;
+                }
+            } else if (category === "silver") {
+                if (priceData[`priceSilver${priceData[category]}`]) {
+                    price = pricePerGram * priceData[`priceSilver${priceData[category]}`] * priceData.wastageCharges + priceData.makingCharges;
+                }
+            }
+            document.getElementById(`price-result-${category}`).innerText = `Total Price: ₹${price}`;
+        }
+
+        fetchAndDisplayProducts();
+    </script>
+
+    <script type="module" src="scripts/products.js"></script>
+
+</body>
+
+</html>

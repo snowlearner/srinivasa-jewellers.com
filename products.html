@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <!-- CSS styles inside the HTML file -->
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        #goBackButton {
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #goBackButton:hover {
+            background-color: #2980b9;
+        }
+
+        /* Product Card Styles */
+        #productsContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .product {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .product h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 15px 0;
+        }
+
+        .product p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+
+        main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(https://static.vecteezy.com/system/resources/thumbnails/036/226/872/small_2x/ai-generated-nature-landscapes-background-free-photo.jpg);
+            background-position: center;
+            background-size: cover;
+            height: max-content;
+        }
+
+        .navbar {
+            width: 1400px;
+            height: 75px;
+            margin: auto;
+        }
+
+        .icon {
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left: 20px;
+            float: left;
+            padding-top: 10px;
+            margin-top: 5px;
+
+        }
+
+        .menu {
+            width: 400px;
+            float: left;
+            height: 70px;
+        }
+
+        ul {
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul li {
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: blue;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+
+        ul li a:hover {
+            color: #ff7200;
+        }
+
+        .search {
+            width: 375px;
+            float: left;
+            margin-left: 340px;
+            margin-top: -55px;
+        }
+
+        .srch {
+            font-family: 'Times New Roman';
+            width: 159px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 31px;
+            color: #fff;
+            border-right: none;
+            font-size: 16px;
+            float: left;
+            padding: 19px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .btn {
+            width: 132px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 31px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">
+                    <img src="image2.jpg" alt="SJ" width="50" height="50" />
+                </h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">GALARY</a></li>
+                    <li><a href="products.html">PRODUCTS</a></li>
+
+                    <!-- <li><a href="#">PRODUCTS</a></li> -->
+                    <li><a href="#">CONTACT</a></li>
+                    <!-- <li><a href="#" id="loginBtn">LOGIN</a></li> -->
+                    <li><a href="index.html">LOGIN</a></li>
+
+                </ul>
+            </div>
+            <br><br><br>
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text" />
+                <a href="#">
+                    <button class="btn">Search</button>
+                </a>
+            </div>
+        </div>
+        <h1>Our Exclusive Products</h1>
+        <div>
+            <button id="goBackButton">Go Back to Main Page</button>
+        </div>
+        <br><br>
+
+        <!-- Container for products -->
+        <div id="productsContainer"></div>
+
+        <!-- Sign Up and Sign In Forms -->
+        <div class="container" id="signup" style="display:none;">
+            <h1 class="form-title">Register</h1>
+            <form method="post" action="">
+                <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="fName" placeholder="First Name" required />
+                    <label for="fName">First Name</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="lName" placeholder="Last Name" required />
+                    <label for="lName">Last Name</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="rEmail" placeholder="Email" required />
+                    <label for="rEmail">Email</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="rPassword" placeholder="Password" required />
+                    <label for="rPassword">Password</label>
+                </div>
+                <button class="btn" id="submitSignUp">Sign Up</button>
+            </form>
+            <div class="links">
+                <br>
+                <p>Already Have Account?</p>
+                <br>
+                <button id="signInButton">Sign In</button>
+            </div>
+        </div>
+        <!-- Sign In Form -->
+        <div class="container" id="signIn" style="display:none;">
+            <h1 class="form-title">Sign In</h1>
+            <form method="post" action="">
+                <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required />
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required />
+                    <label for="password">Password</label>
+                </div>
+                <!-- <p class="recover"><a href="#">Recover Password</a></p> -->
+                <button class="btn" id="submitSignIn">Sign In</button>
+            </form>
+            <div class="links">
+                <br>
+                <p>Don't have account yet?</p>
+                <br>
+                <button id="signUpButton">Sign Up</button>
+            </div>
+        </div>
+
+
+        <!-- Include Firebase App & Firestore scripts -->
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+        <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js"></script>
+
+        <!-- Your custom JavaScript for fetching and displaying products -->
+        <script type="module" src="scripts/products.js"></script>
+        <script type="module" src="index.html"></script>
+        <!-- <script type="module" src="script.js"></script> -->
+        
+
+</body>
+
+</html>
