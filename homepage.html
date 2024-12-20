@@ -214,112 +214,112 @@
   </style>
 </head>
 
-<body>
-  <h1>Welcome to the Homepage</h1>
-
-  <!-- User Details Section -->
-  <div class="user-details-card">
-    <h3>User Details</h3>
-    <div>
-      <strong>First Name:</strong> <span id="loggedUserFName">John</span>
-    </div>
-    <div>
-      <strong>Last Name:</strong> <span id="loggedUserLName">Doe</span>
-    </div>
-    <div>
-      <strong>Email:</strong> <span id="loggedUserEmail">john.doe@example.com</span>
-    </div>
-  </div>
-
-  <!-- Gold and Silver Price Update Form -->
-  <div class="form-container">
-    <div class="form-card">
-      <h2>Please Update the Prices for Gold and Silver</h2>
-      <form id="priceForm">
-        <div class="input-group">
-          <label for="price18Karat">Price 18 Karat Gold per Gram:</label>
-          <input type="number" id="price18Karat" required />
-        </div>
-        <div class="input-group">
-          <label for="price20Karat">Price 20 Karat Gold per Gram:</label>
-          <input type="number" id="price20Karat" required />
-        </div>
-        <div class="input-group">
-          <label for="price22Karat">Price 22 Karat Gold per Gram:</label>
-          <input type="number" id="price22Karat" required />
-        </div>
-        <div class="input-group">
-          <label for="price24Karat">Price 24 Karat Gold per Gram:</label>
-          <input type="number" id="price24Karat" required />
-        </div>
-        <div class="input-group">
-          <label for="priceSilver1">Price Silver 1 per Gram:</label>
-          <input type="number" id="priceSilver1" required />
-        </div>
-        <div class="input-group">
-          <label for="priceSilver2">Price Silver 2 per Gram:</label>
-          <input type="number" id="priceSilver2" required />
-        </div>
-        <div class="input-group">
-          <label for="wastageCharges">Wastage Charges (%):</label>
-          <input type="number" id="wastageCharges" required />
-        </div>
-        <div class="input-group">
-          <label for="makingCharges">Making Charges per Gram:</label>
-          <input type="number" id="makingCharges" required />
-        </div>
-        <button type="submit" id="savePrices">Save Prices</button>
-      </form>
-    </div>
-
-    <!-- Add New Product Form -->
-    <div class="form-card">
-      <h2>Add a New Product</h2>
-      <form id="addProductForm">
-        <div class="input-group">
-          <label for="product-category">Product Category</label>
-          <select id="product-category" required>
-            <option value="24 Karat">24 Karat</option>
-            <option value="22 Karat">22 Karat</option>
-            <option value="20 Karat">20 Karat</option>
-            <option value="18 Karat">18 Karat</option>
-            <option value="Silver 1">Silver 1</option>
-            <option value="Silver 2">Silver 2</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="product-name">Product Name</label>
-          <input type="text" id="product-name" required />
-        </div>
-        <div class="input-group">
-          <label for="product-weight">Product Weight</label>
-          <input type="number" id="product-weight" step="0.001" required />
-        </div>
-        <div class="input-group">
-          <label for="product-image-url">Product Image URL</label>
-          <input type="text" id="product-image-url" placeholder="Enter image URL" required />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
-      <!-- ---------------------- -->
-      <h2>Delete a Product</h2>
-      <form id="deleteProductForm">
-        <label for="product-select">Select Product to Delete</label>
-        <select id="product-select" required>
-          <!-- Product options will be populated dynamically -->
-        </select>
-
-        <button type="submit">Delete Product</button>
-      </form>
-      <!-- --------------------------------- -->
-    </div>
-
-  </div>
-
-  <!-- Logout Button -->
-  <button id="logout" onclick="window.location.href = 'logout.html';">Logout</button>
-
-  <script type="module" src="./homepage.js"></script>
+<body>  
+  <h1>Welcome to the Homepage</h1>  
+  
+  <!-- User Details Section -->  
+  <div class="user-details-card">  
+   <h3>User Details</h3>  
+   <div>  
+    <strong>First Name:</strong> <span id="loggedUserFName">John</span>  
+   </div>  
+   <div>  
+    <strong>Last Name:</strong> <span id="loggedUserLName">Doe</span>  
+   </div>  
+   <div>  
+    <strong>Email:</strong> <span id="loggedUserEmail">john.doe@example.com</span>  
+   </div>  
+  </div>  
+  
+  <!-- Gold and Silver Price Update Form -->  
+  <div class="form-container">  
+   <div class="form-card">  
+    <h2>Please Update the Prices for Gold and Silver</h2>  
+    <form id="priceForm">  
+      <div class="input-group">  
+       <label for="price18Karat">Price 18 Karat Gold per Gram:</label>  
+       <input type="number" id="price18Karat" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="price20Karat">Price 20 Karat Gold per Gram:</label>  
+       <input type="number" id="price20Karat" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="price22Karat">Price 22 Karat Gold per Gram:</label>  
+       <input type="number" id="price22Karat" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="price24Karat">Price 24 Karat Gold per Gram:</label>  
+       <input type="number" id="price24Karat" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="priceSilver1">Price Silver 1 per Gram:</label>  
+       <input type="number" id="priceSilver1" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="priceSilver2">Price Silver 2 per Gram:</label>  
+       <input type="number" id="priceSilver2" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="wastageCharges">Wastage Charges (%):</label>  
+       <input type="number" id="wastageCharges" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="makingCharges">Making Charges per Gram:</label>  
+       <input type="number" id="makingCharges" required />  
+      </div>  
+      <button type="submit" id="savePrices">Save Prices</button>  
+    </form>  
+   </div>  
+  
+   <!-- Add New Product Form -->  
+   <div class="form-card">  
+    <h2>Add a New Product</h2>  
+    <form id="addProductForm">  
+      <div class="input-group">  
+       <label for="product-category">Product Category</label>  
+       <select id="product-category" required>  
+        <option value="24 Karat">24 Karat</option>  
+        <option value="22 Karat">22 Karat</option>  
+        <option value="20 Karat">20 Karat</option>  
+        <option value="18 Karat">18 Karat</option>  
+        <option value="Silver 1">Silver 1</option>  
+        <option value="Silver 2">Silver 2</option>  
+       </select>  
+      </div>  
+      <div class="input-group">  
+       <label for="product-name">Product Name</label>  
+       <input type="text" id="product-name" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="product-weight">Product Weight</label>  
+       <input type="number" id="product-weight" step="0.001" required />  
+      </div>  
+      <div class="input-group">  
+       <label for="product-image-url">Product Image URL</label>  
+       <input type="text" id="product-image-url" placeholder="Enter image URL" required />  
+      </div>  
+      <button type="submit">Add Product</button>  
+    </form>  
+    <!-- ---------------------- -->  
+    <h2>Delete a Product</h2>  
+    <form id="deleteProductForm">  
+      <label for="product-select">Select Product to Delete</label>  
+      <select id="product-select" required>  
+       <!-- Product options will be populated dynamically -->  
+      </select>  
+  
+      <button type="submit">Delete Product</button>  
+    </form>  
+    <!-- --------------------------------- -->  
+   </div>  
+  
+  </div>  
+  
+  <!-- Logout Button -->  
+  <button id="logout">Logout</button>  
+  
+  <script type="module" src="./homepage.js"></script>  
 </body>
 
 </html>
