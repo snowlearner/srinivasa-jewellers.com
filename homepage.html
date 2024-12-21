@@ -14,6 +14,109 @@
       box-sizing: border-box;
     }
 
+
+
+    /* --------------------------------- */
+    /* .navbar {
+      width: 100%;
+      height: 75px;
+      margin: auto;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    } */
+    .navbar {
+      width: 100%;
+      height: 75px;
+      margin: auto;
+      margin-top: -25px;
+      /* margin-left: -20px;
+    margin-right: 20px; */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0px 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      color: #ff7200;
+      font-size: 30px;
+      font-family: 'Arial', sans-serif;
+      padding-left: 10px;
+      padding-top: 30px;
+    }
+
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      margin-left: auto;
+    }
+
+    .menu ul li {
+      display: inline-block;
+    }
+
+    .menu ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu ul li a:hover {
+      color: #ff7200;
+      text-transform: uppercase;
+    }
+
+    .search input.srch {
+      padding: 10px;
+      border: 2px solid #ff7200;
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+      width: 300px;
+      border-radius: 25px;
+      margin-right: 10px;
+      transition: width 0.4s ease-in-out;
+    }
+
+    .search input.srch:focus {
+      outline: none;
+      width: 400px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #ff7200;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    
+
+    .btn:hover {
+      background-color: #e65800;
+    }
+
+    /* ----------------------------------- */
+
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(to right, #e2e2e2, #c9d6ff);
@@ -22,7 +125,8 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      overflow-x: hidden;
+
     }
 
     h1 {
@@ -60,10 +164,11 @@
     .user-details-card {
       background-color: cyan;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
       padding: 20px;
-      width: 389px;
-      margin-bottom: 30px;
+      width: 520px;
+      margin-bottom: 80px;
+      margin-left: 100px;
       text-align: left;
       transition: transform 0.3s ease;
     }
@@ -86,6 +191,46 @@
     }
 
     .user-details-card span {
+      font-weight: bold;
+      color: mediumblue;
+    }
+
+    .updated-price-details-card {
+      background-color: cyan;
+      border-radius: 12px;
+      box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
+      padding: 35px;
+      width: 525px;
+      margin-bottom: 38px;
+      margin-top: -255px;
+      margin-left: 655px;
+      display: inherit;
+      text-align: left;
+      transition: transform 0.3s ease;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .updated-price-details-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .updated-price-details-card h2 {
+      margin-bottom: 10px;
+      color: goldenrod;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+
+    .updated-price-details-card div {
+      margin-bottom: -10px;
+      font-size: 1.2rem;
+      font-weight: bolder;
+      margin-top: -13px;
+    }
+
+    .updated-price-details-card span {
       font-weight: bold;
       color: mediumblue;
     }
@@ -211,115 +356,346 @@
         padding: 10px;
       }
     }
+
+    /* Styles for the container to display the data side by side */
+    #priceDetails {
+      display: flexbox;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: space-between;
+    }
+
+    /* Styles for each individual price detail */
+    .price-item {
+      width: 60%;
+      background-color: gainsboro;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 5px;
+      display: ruby-text;
+    }
+
+    .price-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    /* Make sure to break into a new row on very small screens */
+    @media (max-width: 600px) {
+      .price-item {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
-<body>  
-  <h1>Welcome to the Homepage</h1>  
-  
-  <!-- User Details Section -->  
-  <div class="user-details-card">  
-   <h3>User Details</h3>  
-   <div>  
-    <strong>First Name:</strong> <span id="loggedUserFName">John</span>  
-   </div>  
-   <div>  
-    <strong>Last Name:</strong> <span id="loggedUserLName">Doe</span>  
-   </div>  
-   <div>  
-    <strong>Email:</strong> <span id="loggedUserEmail">john.doe@example.com</span>  
-   </div>  
-  </div>  
-  
-  <!-- Gold and Silver Price Update Form -->  
-  <div class="form-container">  
-   <div class="form-card">  
-    <h2>Please Update the Prices for Gold and Silver</h2>  
-    <form id="priceForm">  
-      <div class="input-group">  
-       <label for="price18Karat">Price 18 Karat Gold per Gram:</label>  
-       <input type="number" id="price18Karat" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="price20Karat">Price 20 Karat Gold per Gram:</label>  
-       <input type="number" id="price20Karat" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="price22Karat">Price 22 Karat Gold per Gram:</label>  
-       <input type="number" id="price22Karat" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="price24Karat">Price 24 Karat Gold per Gram:</label>  
-       <input type="number" id="price24Karat" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="priceSilver1">Price Silver 1 per Gram:</label>  
-       <input type="number" id="priceSilver1" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="priceSilver2">Price Silver 2 per Gram:</label>  
-       <input type="number" id="priceSilver2" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="wastageCharges">Wastage Charges (%):</label>  
-       <input type="number" id="wastageCharges" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="makingCharges">Making Charges per Gram:</label>  
-       <input type="number" id="makingCharges" required />  
-      </div>  
-      <button type="submit" id="savePrices">Save Prices</button>  
-    </form>  
-   </div>  
-  
-   <!-- Add New Product Form -->  
-   <div class="form-card">  
-    <h2>Add a New Product</h2>  
-    <form id="addProductForm">  
-      <div class="input-group">  
-       <label for="product-category">Product Category</label>  
-       <select id="product-category" required>  
-        <option value="24 Karat">24 Karat</option>  
-        <option value="22 Karat">22 Karat</option>  
-        <option value="20 Karat">20 Karat</option>  
-        <option value="18 Karat">18 Karat</option>  
-        <option value="Silver 1">Silver 1</option>  
-        <option value="Silver 2">Silver 2</option>  
-       </select>  
-      </div>  
-      <div class="input-group">  
-       <label for="product-name">Product Name</label>  
-       <input type="text" id="product-name" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="product-weight">Product Weight</label>  
-       <input type="number" id="product-weight" step="0.001" required />  
-      </div>  
-      <div class="input-group">  
-       <label for="product-image-url">Product Image URL</label>  
-       <input type="text" id="product-image-url" placeholder="Enter image URL" required />  
-      </div>  
-      <button type="submit">Add Product</button>  
-    </form>  
-    <!-- ---------------------- -->  
-    <h2>Delete a Product</h2>  
-    <form id="deleteProductForm">  
-      <label for="product-select">Select Product to Delete</label>  
-      <select id="product-select" required>  
-       <!-- Product options will be populated dynamically -->  
-      </select>  
-  
-      <button type="submit">Delete Product</button>  
-    </form>  
-    <!-- --------------------------------- -->  
-   </div>  
-  
-  </div>  
-  
-  <!-- Logout Button -->  
-  <button id="logout">Logout</button>  
-  
-  <script type="module" src="./homepage.js"></script>  
+<body>
+  <div class="main">
+    <div class="navbar">
+      <div class="icon">
+        <h2 class="logo">
+          <img src="image2.jpg" alt="SJ" width="50" height="50" />
+        </h2>
+      </div>
+      <div class="menu">
+        <ul>
+
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="index.html">LOGIN</a></li>
+
+        </ul>
+      </div>
+
+      <div class="search">
+        <input class="srch" type="search" name="" placeholder="Type To text" />
+        <a href="#">
+          <button class="btn">Search</button>
+        </a>
+      </div>
+    </div>
+    <br><br>
+    <h1>Welcome to the Homepage</h1>
+
+    <!-- User Details Section -->
+    <div class="user-details-card">
+      <h3>User Details</h3>
+      <div>
+        <strong>First Name:</strong> <span id="loggedUserFName">John</span>
+      </div>
+      <div>
+        <strong>Last Name:</strong> <span id="loggedUserLName">Doe</span>
+      </div>
+      <div>
+        <strong>Email:</strong> <span id="loggedUserEmail">john.doe@example.com</span>
+      </div>
+    </div>
+    <!-- Display Price details updated -->
+    <div class="updated-price-details-card">
+      <div id="priceDetails">
+        <!-- Price data will be displayed here -->
+      </div>
+    </div>
+    <!-- ------------------------------ -->
+
+    <!-- Gold and Silver Price Update Form -->
+    <div class="form-container">
+      <div class="form-card">
+        <h2>Please Update the Prices for Gold and Silver</h2>
+        <form id="priceForm">
+          <div class="input-group">
+            <label for="price18Karat">Price 18 Karat Gold per Gram:</label>
+            <input type="number" id="price18Karat" required />
+          </div>
+          <div class="input-group">
+            <label for="price20Karat">Price 20 Karat Gold per Gram:</label>
+            <input type="number" id="price20Karat" required />
+          </div>
+          <div class="input-group">
+            <label for="price22Karat">Price 22 Karat Gold per Gram:</label>
+            <input type="number" id="price22Karat" required />
+          </div>
+          <div class="input-group">
+            <label for="price24Karat">Price 24 Karat Gold per Gram:</label>
+            <input type="number" id="price24Karat" required />
+          </div>
+          <div class="input-group">
+            <label for="priceSilver1">Price Silver 1 per Gram:</label>
+            <input type="number" id="priceSilver1" required />
+          </div>
+          <div class="input-group">
+            <label for="priceSilver2">Price Silver 2 per Gram:</label>
+            <input type="number" id="priceSilver2" required />
+          </div>
+          <div class="input-group">
+            <label for="wastageCharges">Wastage Charges (%):</label>
+            <input type="number" id="wastageCharges" required />
+          </div>
+          <div class="input-group">
+            <label for="makingCharges">Making Charges per Gram:</label>
+            <input type="number" id="makingCharges" required />
+          </div>
+          <button type="submit" id="savePrices">Save Prices</button>
+        </form>
+      </div>
+
+      <!-- Add New Product Form -->
+      <div class="form-card">
+        <h2>Add a New Product</h2>
+        <form id="addProductForm">
+          <div class="input-group">
+            <label for="product-category">Product Category</label>
+            <select id="product-category" required>
+              <option value="24 Karat">24 Karat</option>
+              <option value="22 Karat">22 Karat</option>
+              <option value="20 Karat">20 Karat</option>
+              <option value="18 Karat">18 Karat</option>
+              <option value="Silver 1">Silver 1</option>
+              <option value="Silver 2">Silver 2</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" required />
+          </div>
+          <div class="input-group">
+            <label for="product-weight">Product Weight</label>
+            <input type="number" id="product-weight" step="0.001" required />
+          </div>
+          <div class="input-group">
+            <label for="product-image-url">Product Image URL</label>
+            <input type="text" id="product-image-url" placeholder="Enter image URL" required />
+          </div>
+          <button type="submit">Add Product</button>
+        </form>
+        <!-- ---------------------- -->
+        <h2>Delete a Product</h2>
+        <form id="deleteProductForm">
+          <label for="product-select">Select Product to Delete</label>
+          <select id="product-select" required>
+            <!-- Product options will be populated dynamically -->
+          </select>
+
+          <button type="submit">Delete Product</button>
+        </form>
+        <!-- --------------------------------- -->
+      </div>
+
+    </div>
+    <!----------------------- Logout Button---------------- -->
+    <div class="log-out-button">
+      
+      <button id="logoutbtn">Logout</button>
+    </div>
+
+    <!-- ---------------------------------- contact details----------------- -->
+
+    <div class="admin-contact-details">
+      <h2>Customer Who Want to Contact Us</h2>
+      <div id="contactList">
+        <!-- Contact details will be dynamically populated here -->
+      </div>
+      <div>
+        <button id="viewCustomersBtn">View Customers</button>
+        <button id="deleteAllCustomersBtn">Delete All Customers</button>
+      </div>
+
+
+      <!-- Firebase SDK -->
+      <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import { getFirestore, doc, collection, getDocs, getDoc, writeBatch } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDt_ePCpK6FVGe4tmJgMaz-DmlvGQm5wk4",
+          authDomain: "srinivasa-jewellers.firebaseapp.com",
+          projectId: "srinivasa-jewellers",
+          storageBucket: "srinivasa-jewellers.firebasestorage.app",
+          messagingSenderId: "861877666540",
+          appId: "1:861877666540:web:f1c4557fdb19732ffc1bc9",
+          measurementId: "G-WV4L6HXEXF"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Button to show customers' contact details
+        const viewCustomersBtn = document.getElementById('viewCustomersBtn');
+        const contactListSection = document.getElementById('contactListSection');
+        const contactListDiv = document.getElementById("contactList");
+
+        // Function to fetch and display contact details from Firestore
+        async function fetchContactDetails() {
+          // Ensure the contactListSection exists
+          if (contactListSection) {
+            contactListSection.style.display = "block"; // Show the contact list section
+          }
+
+          try {
+            // Get the customer data from Firestore
+            const querySnapshot = await getDocs(collection(db, "customerData"));
+
+            // Check if there is data
+            if (querySnapshot.empty) {
+              contactListDiv.innerHTML = "<p>No contact details available.</p>";
+              return;
+            }
+
+            // Loop through the documents and display contact details
+            contactListDiv.innerHTML = ''; // Clear previous data
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+
+              // Check if all necessary fields are present
+              if (data.firstName && data.lastName && data.email && data.phone) {
+                const contactDiv = document.createElement("div");
+                contactDiv.classList.add("contact-details");
+
+                // Append contact details to the contact list div
+                contactDiv.innerHTML = `
+          <div><strong>First Name:</strong> ${data.firstName}</div>
+          <div><strong>Last Name:</strong> ${data.lastName}</div>
+          <div><strong>Email:</strong> ${data.email}</div>
+          <div><strong>Phone:</strong> ${data.phone}</div>
+          <hr>
+        `;
+                contactListDiv.appendChild(contactDiv);
+              } else {
+                console.error(`Missing fields for document: ${doc.id}`, data); // Log the missing fields and document ID
+              }
+            });
+
+          } catch (error) {
+            console.error("Error fetching contact details: ", error);
+            contactListDiv.innerHTML = "<p>Error fetching data.</p>";
+          }
+        }
+
+        // Function to delete all customer details from Firestore
+        async function deleteAllCustomerData() {
+          const confirmDelete = confirm("Are you sure you want to delete all customer data?");
+          if (!confirmDelete) return;
+
+          try {
+            const querySnapshot = await getDocs(collection(db, "customerData"));
+            const batch = writeBatch(db); // Initialize batch
+
+            querySnapshot.forEach((doc) => {
+              batch.delete(doc.ref); // Add delete operation to batch for each document
+            });
+
+            await batch.commit(); // Commit all batch operations in a single request
+            console.log("All customer data deleted.");
+            alert("All customer data deleted.");
+            contactListDiv.innerHTML = "<p>No contact details available.</p>"; // Clear contact list display
+          } catch (error) {
+            console.error("Error deleting customer data: ", error);
+            alert("Error deleting customer data.");
+          }
+        }
+
+        // Add event listener for the "Delete All Customers" button
+        document.getElementById("deleteAllCustomersBtn").addEventListener("click", deleteAllCustomerData);
+        // Event listener for the "View Customers" button
+        viewCustomersBtn.addEventListener('click', fetchContactDetails);
+
+        // -------------------Display updated price details-----------------------------//
+
+        // <!-- Firebase SDK (Module version) -->
+
+        // Reference to Firestore document
+        const priceDocRef = doc(db, "priceData", "r8NuFZ36WWbuuBv5muZDXgRJIxB2");
+
+        // Fetch price data and display
+        async function fetchAndDisplayPrices() {
+          try {
+            const docSnapshot = await getDoc(priceDocRef);
+            if (docSnapshot.exists()) {
+              const priceData = docSnapshot.data();
+
+              // Extract data from Firestore
+              const {
+                makingCharges, price18Karat, price20Karat,
+                price22Karat, price24Karat, priceSilver1,
+                priceSilver2, wastageCharges
+              } = priceData;
+
+              // Get current timestamp
+              const timestamp = new Date().toLocaleString();
+              //<div class="price-item"><strong>Last Updated: ${timestamp}</div>
+              // Display price data and timestamp
+              document.getElementById('priceDetails').innerHTML = `
+        <h2>Updated Price Details per gram</h2>
+            <div class="price-item"><strong>18 Karat: ₹${price18Karat}</div> 
+            <div class="price-item"><strong>20 Karat: ₹${price20Karat}</div>
+            <div class="price-item"><strong>22 Karat: ₹${price22Karat}</div>
+            <div class="price-item"><strong>24 Karat: ₹${price24Karat}</div>
+            <div class="price-item"><strong>Silver 1: ₹${priceSilver1}</div>
+            <div class="price-item"><strong>Silver 2: ₹${priceSilver2}</div>
+            <div class="price-item"><strong>Wastage Charges: ₹${wastageCharges}%</div>
+            <div class="price-item"><strong>Making Charges: ₹${makingCharges}</div>
+            
+          `;
+            } else {
+              console.log("No such document!");
+            }
+          } catch (error) {
+            console.error("Error fetching price data: ", error);
+          }
+        }
+
+        // Call the function to display prices when the page loads
+        fetchAndDisplayPrices();
+
+      </script>
+
+      <script type="module" src="./homepage.js"></script>
 </body>
 
 </html>

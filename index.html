@@ -18,8 +18,13 @@
       box-sizing: border-box;
     }
 
+    div {
+      display: block;
+      unicode-bidi: isolate;
+    }
+
     .main {
-      width: max-content;
+      width: 100%;
       height: max-content;
       /* Set height to 100% of the viewport height */
       background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%),
@@ -31,106 +36,83 @@
     }
 
     .navbar {
-      width: 1400px;
+      width: 100%;
       height: 75px;
       margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .icon {
-      width: 200px;
-      float: left;
-      height: 70px;
+      display: flex;
+      align-items: center;
     }
 
     .logo {
       color: #ff7200;
-      font-size: 35px;
-      font-family: Arial;
-      float: left;
-      padding-top: 10px;
-      margin-top: 5px;
-      padding-left: 20px;
+      font-size: 30px;
+      font-family: 'Arial', sans-serif;
+      padding-left: 10px;
     }
 
-    .menu {
-      width: 400px;
-      float: left;
-      height: 70px;
-    }
-
-    ul {
-      float: left;
+    .menu ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    ul li {
       list-style: none;
-      margin-left: 62px;
-      margin-top: 27px;
-      font-size: 14px;
+      gap: 20px;
+      margin-left: auto;
     }
 
-    ul li a {
+    .menu ul li {
+      display: inline-block;
+    }
+
+    .menu ul li a {
       text-decoration: none;
-      color: #fff;
-      font-family: Arial;
+      color: white;
       font-weight: bold;
-      transition: 0.4s ease-in-out;
-    }
-
-    ul li a:hover {
-      color: #ff7200;
-    }
-
-    .search {
-      width: 375px;
-      float: left;
-      margin-left: 340px;
-      margin-top: -55px;
-    }
-
-    .srch {
-      font-family: 'Times New Roman';
-      width: 125px;
-      height: 40px;
-      background: transparent;
-      border: 1px solid #ff7200;
-      margin-top: 14px;
-      color: #fff;
-      border-right: none;
       font-size: 16px;
-      float: left;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menu ul li a:hover {
+      color: #ff7200;
+      text-transform: uppercase;
+    }
+
+    .search input.srch {
       padding: 10px;
-      border-bottom-left-radius: 5px;
-      border-top-left-radius: 5px;
+      border: 2px solid #ff7200;
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+      width: 300px;
+      border-radius: 25px;
+      margin-right: 10px;
+      transition: width 0.4s ease-in-out;
+    }
+
+    .search input.srch:focus {
+      outline: none;
+      width: 400px;
     }
 
     .btn {
-      width: 100px;
-      height: 40px;
-      background: #ff7200;
-      border: 2px solid #ff7200;
-      margin-top: 13px;
-      color: #fff;
-      font-size: 15px;
-      border-bottom-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      transition: 0.2s ease;
+      padding: 10px 20px;
+      background-color: #ff7200;
+      border: none;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
+      border-radius: 25px;
+      transition: background-color 0.3s ease-in-out;
     }
 
     .btn:hover {
-      color: #000;
-    }
-
-    .btn:focus {
-      outline: none;
-    }
-
-    .srch:focus {
-      outline: none;
+      background-color: #e65800;
     }
 
     .content {
@@ -354,7 +336,7 @@
       font-size: 14px;
     }
 
-    /* Button styling */
+    /* Button styling 
     .btn {
       width: 60%;
       padding: 12px;
@@ -366,7 +348,7 @@
       cursor: pointer;
       margin-top: 13px;
       transition: 0.3s;
-    }
+    }*/
 
     .btn:hover {
       background-color: #fff;
@@ -464,6 +446,40 @@
 
       .icons i {
         font-size: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0 10px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu ul {
+        flex-direction: column;
+      }
+
+      .menu ul li a {
+        font-size: 12px;
+      }
+
+      .search input.srch {
+        width: 200px;
+      }
+
+      .btn {
+        width: 100px;
+      }
+
+      .about-container h1 {
+        font-size: 1.8rem;
+      }
+
+      .about-container p {
+        font-size: 0.9rem;
       }
     }
 
@@ -639,8 +655,6 @@
         font-size: 16px;
       }
 
-
-
     }
 
     ;
@@ -648,180 +662,188 @@
   <!-- <link rel="stylesheet" href="style1.css" /> -->
 </head>
 
-<body>  
-  <div class="main">  
-   <div class="navbar">  
-    <div class="icon">  
-      <h2 class="logo">  
-       <img src="image2.jpg" alt="SJ" width="50" height="50" />  
-      </h2>  
-    </div>  
-    <div class="menu">  
-      <ul>  
-       <li><a href="#">ABOUT</a></li>  
-       <li><a href="#">GALARY</a></li>  
-       <li><a href="products.html">PRODUCTS</a></li>  
-  
-       <!-- <li><a href="#">PRODUCTS</a></li> -->  
-       <li><a href="#">CONTACT</a></li>  
-       <li><a href="#" id="loginBtn">LOGIN</a></li>  
-  
-      </ul>  
-    </div>  
-    <br><br><br>  
-    <div class="search">  
-      <input class="srch" type="search" name="" placeholder="Type To text" />  
-      <a href="#">  
-       <button class="btn">Search</button>  
-      </a>  
-    </div>  
-   </div>  
-   <div class="content">  
-  
-  
-    <!-- <button class="cn"><a href="https://wa.me/919923556214" target="_blank">JOIN US</a></button> -->  
-  
-    <!-- Sign Up and Sign In Forms -->  
-    <div class="container" id="signup" style="display:none;">  
-      <h1 class="form-title">Register</h1>  
-      <form method="post" action="">  
-       <div id="signUpMessage" class="messageDiv" style="display:none;"></div>  
-       <div class="input-group">  
-        <i class="fas fa-user"></i>  
-        <input type="text" id="fName" placeholder="First Name" required />  
-        <label for="fName">First Name</label>  
-       </div>  
-       <div class="input-group">  
-        <i class="fas fa-user"></i>  
-        <input type="text" id="lName" placeholder="Last Name" required />  
-        <label for="lName">Last Name</label>  
-       </div>  
-       <div class="input-group">  
-        <i class="fas fa-envelope"></i>  
-        <input type="email" id="rEmail" placeholder="Email" required />  
-        <label for="rEmail">Email</label>  
-       </div>  
-       <div class="input-group">  
-        <i class="fas fa-lock"></i>  
-        <input type="password" id="rPassword" placeholder="Password" required />  
-        <label for="rPassword">Password</label>  
-       </div>  
-       <button class="btn" id="submitSignUp">Sign Up</button>  
-      </form>  
-      <div class="links">  
-       <br>  
-       <p>Already Have Account?</p>  
-       <br>  
-       <button id="signInButton">Sign In</button>  
-      </div>  
-    </div>  
-    <!-- Sign In Form -->  
-    <div class="container" id="signIn" style="display:none;">  
-      <h1 class="form-title">Sign In</h1>  
-      <form method="post" action="">  
-       <div id="signInMessage" class="messageDiv" style="display:none;"></div>  
-       <div class="input-group">  
-        <i class="fas fa-envelope"></i>  
-        <input type="email" id="email" placeholder="Email" required />  
-        <label for="email">Email</label>  
-       </div>  
-       <div class="input-group">  
-        <i class="fas fa-lock"></i>  
-        <input type="password" id="password" placeholder="Password" required />  
-        <label for="password">Password</label>  
-       </div>  
-       <!-- <p class="recover"><a href="#">Recover Password</a></p> -->  
-       <button class="btn" id="submitSignIn">Sign In</button>  
-      </form>  
-      <div class="links">  
-       <br>  
-       <p>Don't have account yet?</p>  
-       <br>  
-       <button id="signUpButton">Sign Up</button>  
-      </div>  
-  
-    </div>  
-  
-  
-    <h1>Welcome to <br /><span>Srinivasa Jewellers </span> <br />Bagepalli</h1>  
-    <p class="par">  
-      Where elegance meets craftsmanship. Explore our stunning collection <br>of fine jewelry, perfect for every  
-      occasion. <br>Whether you're looking for timeless classics or unique statement pieces,<br> we have something  
-      special for you. Our team is here to offer personalized <br>service and help you find the perfect piece.  
-      <br>Thank you for visiting – let us make your jewelry dreams come true!  
-    </p>  
-    <!-- Join Us button with WhatsApp icon -->  
-    <button class="cn">  
-      <a href="https://wa.me/919538538568" target="_blank">  
-       <i class="fab fa-whatsapp fa-2x" style="color: #25d366;"></i> JOIN US  
-      </a>  
-    </button>  
-  
-  
-    <button class="cn">  
-      <!-- Instagram Button -->  
-      <a href="https://www.instagram.com/srinavasa_jewellery_works" target="_blank">  
-       <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i> FOLLOW  
-      </a>  
-    </button>  
-    <button class="cn">  
-      <!-- Facebook Button with Font Awesome Icon -->  
-      <a href="https://www.facebook.com/ranjithkumar.ranjithkumar.564" target="_blank">  
-       <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i> FOLLOW  
-      </a>  
-    </button>  
-  
-    <!-- Gold and Silver Price Calculator -->  
-    <div class="gold-silver-calculator">  
-      <h2>Gold and Silver Price Calculator</h2>  
-      <form id="calculator-form">  
-       <div class="input-group">  
-        <label for="gold-type">Gold Type:</label>  
-        <br><br>  
-        <input type="radio" id="18-Karat" name="gold-type" value="18-Karat">  
-        <label for="18-carat">18 Karat</label>  
-        <input type="radio" id="20-Karat" name="gold-type" value="20-Karat">  
-        <label for="20-carat">20 Karat</label>  
-        <input type="radio" id="22-Karat" name="gold-type" value="22-Karat">  
-        <label for="22-carat">22 Karat</label>  
-        <input type="radio" id="24-Karat" name="gold-type" value="24-Karat">  
-        <label for="24-carat">24 Karat</label>  
-       </div>  
-       <div class="input-group">  
-        <label for="gold-weight">Gold Weight (in grams):</label>  
-        <input type="number" id="gold-weight" step="0.001">  
-       </div>  
-       <div class="input-group">  
-        <label for="silver-type">Silver Type:</label>  
-        <br><br>  
-        <input type="radio" id="silver-1" name="silver-type" value="silver-1">  
-        <label for="silver-1">Silver 1</label>  
-        <input type="radio" id="silver-2" name="silver-type" value="silver-2">  
-        <label for="silver-2">Silver 2</label>  
-       </div>  
-       <div class="input-group">  
-        <label for="silver-weight">Silver Weight (in grams):</label>  
-        <input type="number" id="silver-weight" step="0.001">  
-       </div>  
-       <button type="submit" id="calculate-price">Calculate Price</button>  
-      </form>  
-      <div id="price-result"></div>  
-    </div>  
-  
-   </div>  
-  
-   <!-- end Gold and Silver Price Calculator -->  
-  </div>  
-  <!-- <script type="module" src="script.js"></script> -->  
-  <script type="module" src="firebaseauth.js"></script>  
-  <!-- <script type="module" src="homepage.js"></script> -->  
-  <script type="module" src="script.js"></script>  
-  
-  <!-- Include Firebase App & Firestore scripts -->  
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>  
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>  
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js"></script>  
-  
-</body>  
+<body>
+  <div class="main">
+    <div class="navbar">
+      <div class="icon">
+        <h2 class="logo">
+          <img src="image2.jpg" alt="SJ" width="50" height="50" />
+        </h2>
+      </div>
+      <div class="menu">
+        <ul>
+          <!-- <li><a href="#">ABOUT</a></li>   -->
+          <!-- <li><a href="#">GALARY</a></li>   -->
+          <!-- <li><a href="products.html">PRODUCTS</a></li>   -->
+
+          <!-- <li><a href="#">PRODUCTS</a></li> -->
+          <!-- <li><a href="#">CONTACT</a></li>   -->
+          <!-- <li><a href="#" id="loginBtn">LOGIN</a></li>   -->
+
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="#" id="loginBtn">LOGIN</a></li>
+
+        </ul>
+      </div>
+      <br><br><br>
+      <div class="search">
+        <input class="srch" type="search" name="" placeholder="Type To text" />
+        <a href="#">
+          <button class="btn">Search</button>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="content">
+
+
+      <!-- <button class="cn"><a href="https://wa.me/919923556214" target="_blank">JOIN US</a></button> -->
+
+      <!-- Sign Up and Sign In Forms -->
+      <div class="container" id="signup" style="display:none;">
+        <h1 class="form-title">Register</h1>
+        <form method="post" action="">
+          <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="fName" placeholder="First Name" required />
+            <label for="fName">First Name</label>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="lName" placeholder="Last Name" required />
+            <label for="lName">Last Name</label>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="rEmail" placeholder="Email" required />
+            <label for="rEmail">Email</label>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="rPassword" placeholder="Password" required />
+            <label for="rPassword">Password</label>
+          </div>
+          <button class="btn" id="submitSignUp">Sign Up</button>
+        </form>
+        <div class="links">
+          <br>
+          <p>Already Have Account?</p>
+          <br>
+          <button id="signInButton">Sign In</button>
+        </div>
+      </div>
+      <!-- Sign In Form -->
+      <div class="container" id="signIn" style="display:none;">
+        <h1 class="form-title">Sign In</h1>
+        <form method="post" action="">
+          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" required />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required />
+            <label for="password">Password</label>
+          </div>
+          <!-- <p class="recover"><a href="#">Recover Password</a></p> -->
+          <button class="btn" id="submitSignIn">Sign In</button>
+        </form>
+        <div class="links">
+          <br>
+          <p>Don't have account yet?</p>
+          <br>
+          <button id="signUpButton">Sign Up</button>
+        </div>
+
+      </div>
+
+
+      <h1>Welcome to <br /><span>Srinivasa Jewellers </span> <br />Bagepalli</h1>
+      <p class="par">
+        Where elegance meets craftsmanship. Explore our stunning collection <br>of fine jewelry, perfect for every
+        occasion. <br>Whether you're looking for timeless classics or unique statement pieces,<br> we have something
+        special for you. Our team is here to offer personalized <br>service and help you find the perfect piece.
+        <br>Thank you for visiting – let us make your jewelry dreams come true!
+      </p>
+      <!-- Join Us button with WhatsApp icon -->
+      <button class="cn">
+        <a href="https://wa.me/919923556214" target="_blank">
+          <i class="fab fa-whatsapp fa-2x" style="color: #25d366;"></i> JOIN US
+        </a>
+      </button>
+
+
+      <button class="cn">
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/yourusername" target="_blank">
+          <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i> FOLLOW
+        </a>
+      </button>
+      <button class="cn">
+        <!-- Facebook Button with Font Awesome Icon -->
+        <a href="https://www.facebook.com/yourusername" target="_blank">
+          <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i> FOLLOW
+        </a>
+      </button>
+
+      <!-- Gold and Silver Price Calculator -->
+      <div class="gold-silver-calculator">
+        <h2>Gold and Silver Price Calculator</h2>
+        <form id="calculator-form">
+          <div class="input-group">
+            <label for="gold-type">Gold Type:</label>
+            <br><br>
+            <input type="radio" id="18-Karat" name="gold-type" value="18-Karat">
+            <label for="18-carat">18 Karat</label>
+            <input type="radio" id="20-Karat" name="gold-type" value="20-Karat">
+            <label for="20-carat">20 Karat</label>
+            <input type="radio" id="22-Karat" name="gold-type" value="22-Karat">
+            <label for="22-carat">22 Karat</label>
+            <input type="radio" id="24-Karat" name="gold-type" value="24-Karat">
+            <label for="24-carat">24 Karat</label>
+          </div>
+          <div class="input-group">
+            <label for="gold-weight">Gold Weight (in grams):</label>
+            <input type="number" id="gold-weight" step="0.001">
+          </div>
+          <div class="input-group">
+            <label for="silver-type">Silver Type:</label>
+            <br><br>
+            <input type="radio" id="silver-1" name="silver-type" value="silver-1">
+            <label for="silver-1">Silver 1</label>
+            <input type="radio" id="silver-2" name="silver-type" value="silver-2">
+            <label for="silver-2">Silver 2</label>
+          </div>
+          <div class="input-group">
+            <label for="silver-weight">Silver Weight (in grams):</label>
+            <input type="number" id="silver-weight" step="0.001">
+          </div>
+          <button type="submit" id="calculate-price">Calculate Price</button>
+        </form>
+        <div id="price-result"></div>
+      </div>
+
+    </div>
+
+    <!-- end Gold and Silver Price Calculator -->
+  </div>
+  <!-- <script type="module" src="script.js"></script> -->
+  <script type="module" src="firebaseauth.js"></script>
+  <!-- <script type="module" src="homepage.js"></script> -->
+  <script type="module" src="script.js"></script>
+
+  <!-- Include Firebase App & Firestore scripts -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js"></script>
+
+</body>
 
 </html>
