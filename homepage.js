@@ -236,6 +236,34 @@ onAuthStateChanged(auth, async (user) => {
    }  
   }  
 });  
+
+// Price Form Handling
+const priceForm = document.getElementById("priceForm");
+
+priceForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const priceData = {
+    price18Karat: parseFloat(document.getElementById("price18Karat").value),
+    price20Karat: parseFloat(document.getElementById("price20Karat").value),
+    price22Karat: parseFloat(document.getElementById("price22Karat").value),
+    price24Karat: parseFloat(document.getElementById("price24Karat").value),
+    priceSilver1: parseFloat(document.getElementById("priceSilver1").value),
+    priceSilver2: parseFloat(document.getElementById("priceSilver2").value),
+    wastageCharges: parseFloat(document.getElementById("wastageCharges").value),
+    makingCharges: parseFloat(document.getElementById("makingCharges").value),
+  };
+
+  const docRef = doc(db, "priceData", "r8NuFZ36WWbuuBv5muZDXgRJIxB2");
+
+  setDoc(docRef, priceData)
+    .then(() => {
+      alert("Price details updated successfully!");
+    })
+    .catch((error) => {
+      console.error("Error saving price details:", error);
+    });
+});
   
 // Logout functionality  
 document.addEventListener('DOMContentLoaded', function() {  
