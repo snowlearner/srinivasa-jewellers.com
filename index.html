@@ -84,12 +84,13 @@
     }
 
     .search input.srch {
-      padding: 10px;
+      /* padding: 10px; */
+      padding: 10px 20px;
       border: 2px solid #ff7200;
       background-color: transparent;
       color: white;
       font-size: 16px;
-      width: 300px;
+      width: 200px;
       border-radius: 25px;
       margin-right: 10px;
       transition: width 0.4s ease-in-out;
@@ -100,19 +101,13 @@
       width: 400px;
     }
 
-    .btn {
+    .btn{
       padding: 10px 20px;
-      background-color: #ff7200;
-      border: none;
-      color: white;
-      font-size: 16px;
+      background: none;
+      color: #ff7200;
+      border: 1px solid #ff7200;
+      border-radius: 20px;
       cursor: pointer;
-      border-radius: 25px;
-      transition: background-color 0.3s ease-in-out;
-    }
-
-    .btn:hover {
-      background-color: #e65800;
     }
 
     .content {
@@ -129,7 +124,7 @@
       padding-left: 20px;
       padding-bottom: 25px;
       font-family: Arial;
-      letter-spacing: 1.2px;
+      letter-spacing: 0.2px;
       line-height: 30px;
     }
 
@@ -166,7 +161,7 @@
 
     .content span {
       color: #ff7200;
-      font-size: 65px;
+      font-size: 56px;
     }
 
     .form {
@@ -230,10 +225,10 @@
       transition: 0.4s ease;
     }
 
-    .btnn:hover {
+    /* .btnn:hover {
       background: #fff;
       color: #ff7200;
-    }
+    } */
 
     .btnn a {
       text-decoration: none;
@@ -351,8 +346,8 @@
     }*/
 
     .btn:hover {
-      background-color: #fff;
-      color: #ff7200;
+      background-color: #ff7200;
+      color: #fff;
     }
 
     .or {
@@ -391,26 +386,28 @@
       background: none;
       color: #ff7200;
       border: 1px solid #ff7200;
-      border-radius: 5px;
+      border-radius: 20px;
       cursor: pointer;
     }
 
     .links button:hover {
       background-color: #ff7200;
-      color: #fff;
+      color: #ffffff;
     }
 
     /* Styles for Sign In / Sign Up sections */
+
+
     #signup {
-      width: 320px;
-      height: 525px;
+      width: 300px;
+      height: 500px;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 50%);
       position: absolute;
-      top: -15px;
-      left: 870px;
+      top: 1px;
+      margin-left: 560px;
       transform: translate(0%, -5%);
       border-radius: 15px;
-      padding: 18px;
+      padding: 16px;
     }
 
     #signIn {
@@ -419,7 +416,7 @@
       background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 50%);
       position: absolute;
       top: -40px;
-      left: 895px;
+      left: 565px;
       transform: translate(-10%, 2%);
       border-radius: 10px;
       padding: 20px;
@@ -521,6 +518,7 @@
       background-color: rgba(0, 0, 0, 0.3);
       padding: 30px;
       border-radius: 15px;
+      margin-top: 180px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 1.5);
       color: #fff;
     }
@@ -569,7 +567,7 @@
 
     .gold-silver-calculator .input-group input[type="radio"]:hover {
       background-color: #7aca10;
-      color: #8ab7be;
+      color: #9dbe8a;
     }
 
     .gold-silver-calculator .input-group label {
@@ -605,20 +603,23 @@
 
     /* Button styling */
     .gold-silver-calculator button[type="submit"] {
-      width: 100%;
+      width: 80%;
       padding: 12px;
-      background-color: #ff7200;
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       font-size: 18px;
-      color: #fff;
+      margin-left: 35px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      border: 1px solid #ff7200;
+      background: none;
+      color: #ff7200;
     }
 
     .gold-silver-calculator button[type="submit"]:hover {
-      background-color: #fff;
-      color: #ff7200;
+      background-color: #ff7200;
+      color: #fff;
+     
     }
 
     /* Price result styling */
@@ -697,12 +698,7 @@
       </div>
     </div>
 
-
     <div class="content">
-
-
-      <!-- <button class="cn"><a href="https://wa.me/919923556214" target="_blank">JOIN US</a></button> -->
-
       <!-- Sign Up and Sign In Forms -->
       <div class="container" id="signup" style="display:none;">
         <h1 class="form-title">Register</h1>
@@ -767,10 +763,12 @@
 
       <h1>Welcome to <br /><span>Srinivasa Jewellers </span> <br />Bagepalli</h1>
       <p class="par">
-        Where elegance meets craftsmanship. Explore our stunning collection <br>of fine jewelry, perfect for every
-        occasion. <br>Whether you're looking for timeless classics or unique statement pieces,<br> we have something
-        special for you. Our team is here to offer personalized <br>service and help you find the perfect piece.
-        <br>Thank you for visiting – let us make your jewelry dreams come true!
+        Where elegance meets craftsmanship.
+        Explore our exquisite collection <br>of
+        fine gold jewelry, from timeless classics
+        to unique statement pieces.
+        <br>Our team is dedicated to helping you find the perfect
+        piece to <br>make your jewelry dreams come true!
       </p>
       <!-- Join Us button with WhatsApp icon -->
       <button class="cn">

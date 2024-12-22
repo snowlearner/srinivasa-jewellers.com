@@ -14,33 +14,15 @@
       box-sizing: border-box;
     }
 
-
-
-    /* --------------------------------- */
-    /* .navbar {
+    .navbar {
       width: 100%;
       height: 75px;
       margin: auto;
-      margin-top: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #333;
       padding: 0 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    } */
-    .navbar {
-      width: 100%;
-      height: 75px;
-      margin: auto;
-      margin-top: -25px;
-      /* margin-left: -20px;
-    margin-right: 20px; */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 0px 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
@@ -49,12 +31,13 @@
       align-items: center;
     }
 
+    
     .logo {
-      color: #ff7200;
-      font-size: 30px;
-      font-family: 'Arial', sans-serif;
-      padding-left: 10px;
-      padding-top: 30px;
+    color: #ff7200;
+    font-size: 30px;
+    font-family: 'Arial', sans-serif;
+    padding-left: 5px;
+    height: 25px;
     }
 
     .menu ul {
@@ -82,12 +65,12 @@
     }
 
     .search input.srch {
-      padding: 10px;
+      padding: 10px 20px;
       border: 2px solid #ff7200;
       background-color: transparent;
       color: white;
       font-size: 16px;
-      width: 300px;
+      width: 160px;
       border-radius: 25px;
       margin-right: 10px;
       transition: width 0.4s ease-in-out;
@@ -98,18 +81,20 @@
       width: 400px;
     }
 
+    
     .btn {
       padding: 10px 20px;
       background-color: #ff7200;
       border: none;
       color: white;
       font-size: 16px;
+      width: 85px;
       cursor: pointer;
       border-radius: 25px;
       transition: background-color 0.3s ease-in-out;
     }
 
-    
+
 
     .btn:hover {
       background-color: #e65800;
@@ -121,7 +106,7 @@
       font-family: 'Arial', sans-serif;
       background: linear-gradient(to right, #e2e2e2, #c9d6ff);
       color: #333;
-      padding: 30px;
+      padding: 0px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -195,7 +180,7 @@
       color: mediumblue;
     }
 
-    .updated-price-details-card {
+    /* .updated-price-details-card {
       background-color: cyan;
       border-radius: 12px;
       box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
@@ -209,7 +194,23 @@
       transition: transform 0.3s ease;
       justify-content: space-between;
       flex-direction: row;
-    }
+    } */
+
+    .updated-price-details-card {
+    background-color: cyan;
+    border-radius: 12px;
+    box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
+    padding: 11px 10px;
+    width: 365px;
+    margin-bottom: 38px;
+    margin-top: -260px;
+    margin-left: 655px;
+    display: inherit;
+    text-align: left;
+    transition: transform 0.3s ease;
+    justify-content: space-between;
+    flex-direction: row;
+}
 
     .updated-price-details-card:hover {
       transform: translateY(-10px);
@@ -387,42 +388,48 @@
         width: 100%;
       }
     }
+
+    /*------------------------------------*/
     /* Center the logout and customer action buttons */
-.log-out-button, .admin-contact-details > div {
-  display: flex;
-  justify-content: center;  /* Center buttons horizontally */
-  align-items: center;      /* Vertically align */
-  margin-top: 30px;         /* Add some space above the buttons */
-  gap: 20px;                /* Space between the buttons */
-}
+    .log-out-button,
+    .admin-contact-details>div {
+      display: flex;
+      justify-content: center;
+      /* Center buttons horizontally */
+      align-items: center;
+      /* Vertically align */
+      margin-top: 30px;
+      /* Add some space above the buttons */
+      gap: 20px;
+      /* Space between the buttons */
+    }
 
-button {
-  padding: 10px 20px;
-  background-color: #ff7200;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: background-color 0.3s ease-in-out;
-}
+    button {
+      padding: 10px 20px;
+      background-color: orange;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-button:hover {
-  background-color: #e65800;
-}
+    button:hover {
+      background-color: #e65800;
+    }
 
-/* Styling for the individual buttons to ensure consistency */
-button#logout {
-  width: 200px;
-  text-align: center;
-}
+    /* Styling for the individual buttons to ensure consistency */
+    button#logout {
+      width: 200px;
+      text-align: center;
+    }
 
-button#viewCustomersBtn,
-button#deleteAllCustomersBtn {
-  width: 200px;
-  text-align: center;
-}
-
+    button#viewCustomersBtn,
+    button#deleteAllCustomersBtn {
+      width: 200px;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -563,7 +570,7 @@ button#deleteAllCustomersBtn {
     </div>
     <!----------------------- Logout Button---------------- -->
     <div class="log-out-button">
-      
+
       <button id="logout">Logout</button>
     </div>
 
@@ -707,7 +714,7 @@ button#deleteAllCustomersBtn {
               //<div class="price-item"><strong>Last Updated: ${timestamp}</div>
               // Display price data and timestamp
               document.getElementById('priceDetails').innerHTML = `
-        <h2>Updated Price Details per gram</h2>
+        <h2>Price Details per gram</h2>
             <div class="price-item"><strong>18 Karat: ₹${price18Karat}</div> 
             <div class="price-item"><strong>20 Karat: ₹${price20Karat}</div>
             <div class="price-item"><strong>22 Karat: ₹${price22Karat}</div>
