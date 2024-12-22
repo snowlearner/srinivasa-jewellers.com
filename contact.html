@@ -7,6 +7,7 @@
     <title>Contact Us</title>
     <style>
         /* Reset some default styles */
+
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +17,7 @@
         /* Body and background */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ff7200, #ff6600);
+            background: linear-gradient(to right, #ff3b00c4, #005affad);
             color: white;
             line-height: 1.6;
             overflow-x: hidden;
@@ -102,35 +103,78 @@
             background-color: #e65800;
         }
 
-        .about-container {
-            width: 80%;
-            margin: 50px auto;
-            text-align: center;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .about-container h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 20px;
-            font-family: 'Arial', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .about-container p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #ddd;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        iframe {
+        /* Contact Form Styling */
+        .contact-form-container {
             width: 100%;
-            border: 0;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff0d;
+            color: #333;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0.6, 0.2, 0.1, 1.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .contact-form-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        .contact-form-container h1 {
+            text-align: center;
+            color: #ff7200;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .contact-form-container h1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .contact-form-container label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .contact-form-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
             border-radius: 8px;
-            margin-top: 40px;
+            border: 2px solid #ddd;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form-container input:focus {
+            border-color: #ff7200;
+            outline: none;
+        }
+
+        .contact-form-container input:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .contact-form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff7200;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container button:hover {
+            background-color: #e65800;
+             transform: translateY(-2px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Animation keyframes */
@@ -139,6 +183,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -171,6 +216,11 @@
 
             .about-container p {
                 font-size: 1rem;
+            }
+
+            /* Contact Form for mobile view */
+            .contact-form-container {
+                padding: 15px;
             }
         }
 
@@ -206,41 +256,46 @@
             .about-container p {
                 font-size: 0.9rem;
             }
-        }
 
+            /* Contact Form for small screens */
+            .contact-form-container {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="main">
         <div class="navbar">
-          <div class="icon">
-            <h2 class="logo">
-              <img src="image2.jpg" alt="SJ" width="50" height="50" />
-            </h2>
-          </div>
-          <div class="menu">
-            <ul>
-                  
-              <li><a href="about.html">ABOUT</a></li>
-              <li><a href="gallery.html">GALLERY</a></li>
-              <li><a href="products.html">PRODUCTS</a></li>
-              <li><a href="contact.html">CONTACT</a></li>
-              <li><a href="index.html">LOGIN</a></li>
-    
-            </ul>
-          </div>
-          
-          <div class="search">
-            <input class="srch" type="search" name="" placeholder="Type To text" />
-            <a href="#">
-              <button class="btn">Search</button>
-            </a>
-          </div>
+            <div class="icon">
+                <h2 class="logo">
+                    <img src="image2.jpg" alt="SJ" width="50" height="50" />
+                </h2>
+            </div>
+            <div class="menu">
+                <ul>
+
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="products.html">PRODUCTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="index.html">LOGIN</a></li>
+
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text" />
+                <a href="#">
+                    <button class="btn">Search</button>
+                </a>
+            </div>
         </div>
 
         <div class="contact-form-container">
-            <h1>Contact Us</h1>
+            <h1>Leave your information here</h1>
+            <p>"Your time matters to us <br>our reprasentative we’ll reach out promptly to assist you!"</p>
             <form id="contactForm">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" required>
