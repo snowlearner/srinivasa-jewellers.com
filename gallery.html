@@ -3,8 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+  <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gallery</title>
+  
+  <!-- Additional CSS for styling -->
+  <style>
+    @media (max-width: 768px) {
+      body {
+        zoom: 1; /* Prevent zooming on smaller screens */
+        transform: scale(1); /* Prevent page scaling */
+      }
+    }
+  </style>
+    <!-- <meta charset="UTF-8"> --!>
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --!>
+   <!-- <title>Gallery</title> --!>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         /* Reset some default styles */
@@ -303,6 +317,13 @@
                     currentImageIndex = 0;
                 }
                 document.getElementById('galleryImage').src = images[currentImageIndex];
+            }
+        </script>
+        <!-- script running for checking the mobile devise --!>
+        <script>
+            if (window.innerWidth <= 768) { // Check if the screen is small (mobile device)
+              document.documentElement.style.setProperty('font-size', '16px'); // Fix font size
+              document.body.style.zoom = 1; // Prevent zoom on mobile devices
             }
         </script>
 </body>
