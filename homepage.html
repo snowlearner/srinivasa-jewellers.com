@@ -31,13 +31,13 @@
       align-items: center;
     }
 
-    
+
     .logo {
-    color: #ff7200;
-    font-size: 30px;
-    font-family: 'Arial', sans-serif;
-    padding-left: 5px;
-    height: 25px;
+      color: #ff7200;
+      font-size: 30px;
+      font-family: 'Arial', sans-serif;
+      padding-left: 5px;
+      height: 25px;
     }
 
     .menu ul {
@@ -81,7 +81,7 @@
       width: 400px;
     }
 
-    
+
     .btn {
       padding: 10px 20px;
       background-color: #ff7200;
@@ -197,20 +197,20 @@
     } */
 
     .updated-price-details-card {
-    background-color: cyan;
-    border-radius: 12px;
-    box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
-    padding: 11px 10px;
-    width: 365px;
-    margin-bottom: 38px;
-    margin-top: -260px;
-    margin-left: 655px;
-    display: inherit;
-    text-align: left;
-    transition: transform 0.3s ease;
-    justify-content: space-between;
-    flex-direction: row;
-}
+      background-color: cyan;
+      border-radius: 12px;
+      box-shadow: 12px 10px 10px rgba(0.2, 0.9, 0.9, 0.1);
+      padding: 11px 10px;
+      width: 365px;
+      margin-bottom: 38px;
+      margin-top: -260px;
+      margin-left: 655px;
+      display: inherit;
+      text-align: left;
+      transition: transform 0.3s ease;
+      justify-content: space-between;
+      flex-direction: row;
+    }
 
     .updated-price-details-card:hover {
       transform: translateY(-10px);
@@ -513,14 +513,31 @@
             <label for="priceSilver2">Price Silver 2 per Gram:</label>
             <input type="number" id="priceSilver2" required />
           </div>
-          <div class="input-group">
+          <!-- <div class="input-group">
             <label for="wastageCharges">Wastage Charges (%):</label>
             <input type="number" id="wastageCharges" required />
           </div>
           <div class="input-group">
             <label for="makingCharges">Making Charges per Gram:</label>
             <input type="number" id="makingCharges" required />
+          </div> -->
+          <div class="input-group">
+            <label for="goldwastageCharges">Gold Wastage Charges (%):</label>
+            <input type="number" id="goldwastageCharges" required />
           </div>
+          <div class="input-group">
+            <label for="goldmakingCharges">Gold Making Charges per Gram:</label>
+            <input type="number" id="goldmakingCharges" required />
+          </div>
+          <div class="input-group">
+            <label for="wastageChargesSilver">Silver Wastage Charges (%):</label>
+            <input type="number" id="wastageChargesSilver" required />
+          </div>
+          <div class="input-group">
+            <label for="makingChargesSilver">Silver Making Charges per Gram:</label>
+            <input type="number" id="makingChargesSilver" required />
+          </div>
+
           <button type="submit" id="savePrices">Save Prices</button>
         </form>
       </div>
@@ -564,10 +581,29 @@
 
           <button type="submit">Delete Product</button>
         </form>
-        <!-- --------------------------------- -->
+
+        <!-- ---------------------   add images ------------- -->
+        <h2>Add an Image</h2>
+        <form id="addImageForm">
+          <div class="input-group">
+            <label for="image-url">Image URL:</label>
+            <input type="text" id="image-url" placeholder="Enter image URL" required />
+          </div>
+          <button type="submit">Add Image</button>
+        </form>
+        <!-- ---------------------   Delete images ------------- -->
+        <h2>Delete an Image</h2>
+        <form id="deleteImageForm">
+          <label for="image-select">Select Image to Delete</label>
+          <select id="image-select" required>
+            <!-- Image options will be populated dynamically -->
+          </select>
+          <button type="submit">Delete Image</button>
+        </form>
       </div>
 
     </div>
+    
     <!----------------------- Logout Button---------------- -->
     <div class="log-out-button">
 
@@ -704,9 +740,9 @@
 
               // Extract data from Firestore
               const {
-                makingCharges, price18Karat, price20Karat,
+                goldmakingCharges, price18Karat, price20Karat,
                 price22Karat, price24Karat, priceSilver1,
-                priceSilver2, wastageCharges
+                priceSilver2, goldwastageCharges, wastageChargesSilver, makingChargesSilver
               } = priceData;
 
               // Get current timestamp
@@ -721,8 +757,10 @@
             <div class="price-item"><strong>24 Karat: ₹${price24Karat}</div>
             <div class="price-item"><strong>Silver 1: ₹${priceSilver1}</div>
             <div class="price-item"><strong>Silver 2: ₹${priceSilver2}</div>
-            <div class="price-item"><strong>Wastage Charges: ₹${wastageCharges}%</div>
-            <div class="price-item"><strong>Making Charges: ₹${makingCharges}</div>
+            <div class="price-item"><strong>Gold Wastage Charges: ₹${goldwastageCharges}%</div>
+            <div class="price-item"><strong>Gold Making Charges: ₹${goldmakingCharges}</div>
+           <div class="price-item"><strong>Silver Wastage Charges: ₹${wastageChargesSilver}%</div>
+            <div class="price-item"><strong>Silver Making Charges: ₹${makingChargesSilver}</div>
             
           `;
             } else {
@@ -739,6 +777,10 @@
       </script>
 
       <script type="module" src="./homepage.js"></script>
+      <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+      <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
+      <script type="module" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script>
+
 </body>
 
 </html>
